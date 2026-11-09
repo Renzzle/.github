@@ -1,8 +1,8 @@
-<img alt="Renzzle" src="https://raw.githubusercontent.com/Renzzle/.github/main/profile/banner.png" width="100%"/>
+<img alt="Renzzle" src="https://raw.githubusercontent.com/Renzzle/.github/main/profile/assets/banner.png" width="100%"/>
 
 <p align="center">
-  <a href="https://apps.apple.com/app/id6793042991"><img alt="App Store" src="https://raw.githubusercontent.com/Renzzle/.github/main/profile/badge-app-store.svg"/></a>
-  <a href="https://play.google.com/store/apps/details?id=com.renzzle_fe"><img alt="Google Play" src="https://raw.githubusercontent.com/Renzzle/.github/main/profile/badge-google-play.svg"/></a>
+  <a href="https://apps.apple.com/app/id6793042991"><img alt="App Store" src="https://raw.githubusercontent.com/Renzzle/.github/main/profile/assets/badges/app-store.svg"/></a>
+  <a href="https://play.google.com/store/apps/details?id=com.renzzle_fe"><img alt="Google Play" src="https://raw.githubusercontent.com/Renzzle/.github/main/profile/assets/badges/google-play.svg"/></a>
 </p>
 
 ## Service
@@ -25,7 +25,7 @@ Renzzle은 전문 오목 퍼즐 앱입니다.\
 
 ### AI Engine
 
-![AI Engine](https://go-skill-icons.vercel.app/api/icons?i=cpp,wasm&perline=2)
+![AI Engine](https://raw.githubusercontent.com/Renzzle/.github/main/profile/assets/stack/ai-engine.svg)
 
 C++ Renju AI. 사용자의 수에 대응하고, 사용자가 만든 문제의 풀이를 검증
 
@@ -37,7 +37,7 @@ C++ Renju AI. 사용자의 수에 대응하고, 사용자가 만든 문제의 �
 
 ### App
 
-![App](https://go-skill-icons.vercel.app/api/icons?i=reactnative,typescript&perline=2)
+![App](https://raw.githubusercontent.com/Renzzle/.github/main/profile/assets/stack/app.svg)
 
 React Native 앱 (iOS · Android). Zustand, React Navigation
 
@@ -48,7 +48,7 @@ React Native 앱 (iOS · Android). Zustand, React Navigation
 
 ### Server
 
-![Server](https://go-skill-icons.vercel.app/api/icons?i=java,spring,mysql,redis&perline=4)
+![Server](https://raw.githubusercontent.com/Renzzle/.github/main/profile/assets/stack/server.svg)
 
 Spring Boot API 서버와 공유 링크 웹 페이지
 
@@ -59,7 +59,7 @@ Spring Boot API 서버와 공유 링크 웹 페이지
 
 ### Infra
 
-![Infra](https://go-skill-icons.vercel.app/api/icons?i=oracle,cloudflare,docker,githubactions,prometheus,grafana&perline=6)
+![Infra](https://raw.githubusercontent.com/Renzzle/.github/main/profile/assets/stack/infra.svg)
 
 - OCI(Oracle Cloud) + Docker Compose, Cloudflare + Caddy(TLS)
 - PR마다 Testcontainers(MySQL · Redis) 기반 통합 테스트 실행 (GitHub Actions)
@@ -68,4 +68,4 @@ Spring Boot API 서버와 공유 링크 웹 페이지
 
 ## Architecture
 
-<img alt="Architecture" src="https://raw.githubusercontent.com/Renzzle/.github/main/profile/architecture.png" width="100%"/>
+<img alt="Architecture" src="https://raw.githubusercontent.com/Renzzle/.github/main/profile/assets/architecture.png" width="100%"/>
