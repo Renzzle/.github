@@ -1,8 +1,8 @@
 <img alt="Renzzle" src="https://raw.githubusercontent.com/Renzzle/.github/main/profile/banner.png" width="100%"/>
 
 <p align="center">
-  <a href="https://apps.apple.com/app/id6793042991"><img alt="App Store" src="https://img.shields.io/badge/App_Store-26241F?style=for-the-badge&logo=appstore&logoColor=white"/></a>
-  <a href="https://play.google.com/store/apps/details?id=com.renzzle_fe"><img alt="Google Play" src="https://img.shields.io/badge/Google_Play-26241F?style=for-the-badge&logo=googleplay&logoColor=white"/></a>
+  <a href="https://apps.apple.com/app/id6793042991"><img alt="App Store" src="https://raw.githubusercontent.com/Renzzle/.github/main/profile/badge-app-store.svg"/></a>
+  <a href="https://play.google.com/store/apps/details?id=com.renzzle_fe"><img alt="Google Play" src="https://raw.githubusercontent.com/Renzzle/.github/main/profile/badge-google-play.svg"/></a>
 </p>
 
 ## Service
