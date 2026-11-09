@@ -13,50 +13,59 @@ Renzzle은 오목 퍼즐 앱입니다. 주어진 국면에서 AI의 방어를 �
 - **커뮤니티** · 직접 문제를 만들어 공유하고, 다른 사용자의 문제를 풀고 평가합니다. AI 검증을 통과한 문제에는 인증 표시가 붙습니다.
 - **랭킹전** · 트레이닝 문제와 인증된 커뮤니티 문제 중 내 레이팅에 맞는 문제가 이어서 나오고, 결과에 따라 레이팅이 오르내립니다.
 
-## Projects
+## Project
 
-### Backend
+- **기간** · 2024.04 ~ 운영 중
+- **팀** · 4명
+- **범위** · iOS·Android 앱, API 서버, C++ AI 엔진
 
-`Renzzle_BE` · API 서버와 공유 링크 웹 페이지
+## What We Built
 
-![Backend](https://go-skill-icons.vercel.app/api/icons?i=java,spring,mysql,redis,aws,cloudflare,docker,githubactions,prometheus,grafana&perline=10)
+### AI Engine
 
-- Google Play · App Store 인앱 결제 서버 검증, 스토어 환불 반영
-- 랭킹전 결과가 중복 전송돼도 한 번만 반영
-- 공유 링크 페이지 서버 렌더링, iOS · Android 딥링크
-- PR 댓글로 테스트 · 운영 서버 배포
+![AI Engine](https://go-skill-icons.vercel.app/api/icons?i=cpp,wasm&perline=2)
 
-### Frontend
+C++ Renju AI. 사용자의 수에 대응하고, 사용자가 만든 문제의 풀이를 검증.
 
-`Renzzle_FE` · iOS · Android 앱
+- Alpha-Beta 탐색 + PVS, Iterative Deepening으로 제한 시간 안에서 탐색 깊이 결정
+- Transposition Table + Zobrist Hashing으로 이미 본 국면 재사용
+- 열린 3·닫힌 4 등 돌 패턴 기반 평가 함수, 후보 수 생성과 정렬
+- Renju 금수 판정 (흑 3-3, 4-4, 장목)
+- 같은 코드를 앱 네이티브 모듈과 WebAssembly로 빌드
 
-![Frontend](https://go-skill-icons.vercel.app/api/icons?i=reactnative,typescript&perline=2)
+### App
 
-- C++ AI 엔진을 네이티브 모듈로 탑재해 기기 안에서 수읽기
-- 인앱 결제, 광고, 7개 언어
-- 운영 화면 앱 내장 (문제 검수, 공지, 결제 내역)
+![App](https://go-skill-icons.vercel.app/api/icons?i=reactnative,typescript&perline=2)
 
-### AI
+React Native 앱 (iOS · Android). Zustand, React Navigation.
 
-`Renzzle_AI` · C++ 렌주 AI 엔진
+- **네이티브 엔진 연동** · C++ 엔진을 JNI(Android) · Objective-C++(iOS) 모듈로 연결, 화면보다 낮은 우선순위의 전용 스레드에서 계산하고 새 요청이나 화면 이탈 시 진행 중인 계산 취소
+- **AI 응답 캐시** · 서버에 쌓인 풀이 트리 → 국면별 캐시 → 기기 내 계산 순으로 응답을 찾고, 기기에서 계산한 결과는 서버 캐시에 다시 저장
+- **토큰 재발급** · 액세스 토큰 만료 시 재발급이 끝날 때까지 요청을 대기열에 모았다가 새 토큰으로 일괄 재전송
+- **딥링크 진입** · 공유 링크가 로그인 전이나 랭킹전 도중에 들어오면 대기했다가 끝난 뒤 해당 문제로 이동
+- **운영 화면** · 문제 검수, 문제집, 공지, 결제 · 환불 관리를 앱 안에 권한별로 제공
 
-![AI](https://go-skill-icons.vercel.app/api/icons?i=cpp,wasm&perline=2)
+### Server
 
-- Alpha-Beta 탐색, PVS, Iterative Deepening
-- Transposition Table, Zobrist Hashing
-- VCF 전용 탐색, 렌주 금수 판정
-- 앱에는 네이티브로, 웹에는 WebAssembly로 같은 엔진 사용
+![Server](https://go-skill-icons.vercel.app/api/icons?i=java,spring,mysql,redis&perline=4)
+
+Spring Boot API 서버와 공유 링크 웹 페이지.
+
+- **랭킹전** · 행 잠금과 멱등 처리로 재전송된 결과도 한 번만 반영, 레이팅에 맞는 문제 출제, Redis Sorted Set 순위
+- **결제** · Google Play · App Store 구매 서버 검증, 스토어 환불을 반영해 지급 회수
+- **AI 풀이 캐시** · 문제별 풀이 트리를 저장해 앱과 웹이 같은 국면을 다시 계산하지 않도록 공유
+- **공유 링크** · 브라우저에서 바로 푸는 웹 페이지 (WebAssembly 엔진), 앱 설치 시 Universal Links · App Links로 앱 실행
+- **인증** · 이메일 인증 가입, JWT 액세스 · 리프레시 토큰
+
+### Infra
+
+![Infra](https://go-skill-icons.vercel.app/api/icons?i=oracle,cloudflare,docker,githubactions,prometheus,grafana&perline=6)
+
+- OCI(Oracle Cloud) + Docker Compose, Cloudflare + Caddy(TLS)
+- PR마다 Testcontainers(MySQL · Redis) 기반 통합 테스트 실행 (GitHub Actions)
+- PR 댓글로 테스트 서버 · 운영 서버 배포
+- Promtail · Loki 로그, Prometheus 메트릭 수집
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    AI["Renzzle_AI<br/>C++ 엔진"] -. 네이티브 모듈 .-> App["앱<br/>React Native"]
-    AI -. WebAssembly .-> Web["브라우저<br/>공유 링크"]
-    App --> CF[Cloudflare]
-    Web --> CF
-    CF --> Caddy --> API[Spring Boot]
-    API --> MySQL
-    API --> Redis
-    API --> Store[Google Play / App Store]
-```
+<img alt="Architecture" src="https://raw.githubusercontent.com/Renzzle/.github/main/profile/architecture.png" width="100%"/>
