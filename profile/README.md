@@ -61,7 +61,7 @@ Spring Boot API 서버와 공유 링크 웹 페이지
 
 ![Infra](https://raw.githubusercontent.com/Renzzle/.github/main/profile/assets/stack/infra.svg)
 
-- OCI(Oracle Cloud) + Docker Compose, Cloudflare + Caddy(TLS)
+- OCI(Oracle Cloud) + Docker Compose, AWS CloudFront(CDN · WAF) + Caddy(TLS)
 - PR마다 Testcontainers(MySQL · Redis) 기반 통합 테스트 실행 (GitHub Actions)
 - PR 댓글로 테스트 서버 · 운영 서버 배포
 - Alloy · Loki 로그, Prometheus 메트릭 수집
